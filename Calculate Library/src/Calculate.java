@@ -37,5 +37,52 @@ public class Calculate {
 	}
 	
 	// Part 2
-	
-}
+	public static boolean isDivisibleBy (int num1, int num2) {
+		return num1 % num2 == 0;
+	}
+	public static double absValue (double num) {
+		if (num < 0) {
+			return num * -1;
+		} else {
+			return num;
+		}
+	}
+	public static double max (double num1, double num2) {
+		if (num1 < num2) {
+			return num2;
+		} else {
+			return num1;
+		}
+	}
+	public static double max (double num1, double num2, double num3) {
+		if (num1 < num2) {
+			if (num2 < num3) {
+				return num3;
+			} else {
+				return num2;
+			}
+		} else if (num2 < num3) {
+			if (num3 < num1) {
+				return num1;
+			} else {
+				return num3;
+			}
+		} else if (num3 < num1) {
+			if (num1 < num2) {
+				return num2;
+			} else {
+				return num1;
+			}
+		}
+	}
+	public static int min (int num1, int num2) {
+		if (num1 < num2) {
+			return num1;
+		} else {
+			return num2;
+		}
+	}
+	public static double round2 (double num) {
+		return nu();
+	}
+ }
