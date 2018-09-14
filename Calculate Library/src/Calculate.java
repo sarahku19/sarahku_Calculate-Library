@@ -83,6 +83,18 @@ public class Calculate {
 		}
 	}
 	public static double round2 (double num) {
-		return nu();
+		return num;
 	}
- }
+	
+	// Part 3
+	public static double exponent (double num, int power) {
+		if (power == 0) {
+			num = 1;
+		} else if (power > 1) {
+			for (int i = 1; i < power; i++) {
+				// use cubed and square methods
+			}
+		}
+		return num;
+	}
+	public static int factorial ()
