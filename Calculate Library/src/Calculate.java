@@ -1,10 +1,11 @@
 /* This class contains methods that perform various math operations.
  * @author Sarah Ku
- * @version 0.1
+ * @version 0.3
  */
+
 public class Calculate {
+	
 	// Part 1
-	// returns the square of the input
 	public static int square (int num) {
 		return num * num;
 	}
@@ -24,7 +25,7 @@ public class Calculate {
 		return deg * 3.14159 / 180;
 	}
 	public static double discriminant (double a, double b, double c) {
-		return b * b - 4 * a * c;
+		return (b * b) - (4 * a * c);
 	}
 	public static String toImproperFrac (int wholeNum, int numerator, int denominator) {
 		return (wholeNum * denominator + numerator) + "/" + denominator;
@@ -83,18 +84,69 @@ public class Calculate {
 		}
 	}
 	public static double round2 (double num) {
-		return num;
+		num = num * 10 ^
 	}
 	
 	// Part 3
 	public static double exponent (double num, int power) {
+		double current = num;
 		if (power == 0) {
-			num = 1;
+			current = 1;
 		} else if (power > 1) {
-			for (int i = 1; i < power; i++) {
-				// use cubed and square methods
+			for (int i = 2; i <= power; i++) {
+				current *= num;
 			}
 		}
+		num = current;
 		return num;
 	}
-	public static int factorial ()
+	public static int factorial (int num) {
+		int current = num;
+		for (int i = 1; i < num; i++) {
+			current = num * (num - i);
+		}
+		num = current;
+		return num;
+	}
+	public static boolean isPrime (int num) {
+		if (num <= 0) {
+			return false;
+		} else {
+			result = num;
+			for (int i = 0; i < 100; i++) {
+				if (Calculate.isDivisibleBy(num1, i)) {
+					result = false;
+				}
+			}
+		}
+		return result;
+	}
+	/*public static boolean isDivisibleBy (int num1, int num2) {
+		return num1 % num2 == 0;
+	}*/
+	public static int gcf (int num1, int num2) {
+		
+	}
+	public static double sqrt (double num) {
+		
+		return Calculate.round2(num);
+	}
+	
+	// Part 4
+	public static String quadForm (int a, int b, int c) {
+		
+		double root1 = ((-1 * b) + Calculate.sqrt(Calculate.discriminant(a, b, c))) / (4 * a * c);
+		double root2 = ((-1 * b) - Calculate.sqrt(Calculate.discriminant(a, b, c))) / (4 * a * c);
+		
+		boolean isRealRoot
+		find number of roots
+		
+		if (no realRoots) {
+			return "no real roots";
+		} else if (1 realRoot) {
+			return Calculate.round2(root);
+		} else if (2 realRoots) {
+			return Calculate.round2(root1) + " and " + Calculate.round2(root2);
+		}
+	}
+}
