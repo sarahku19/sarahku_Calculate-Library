@@ -1,6 +1,6 @@
 /* This class contains methods that perform various math operations.
  * @author Sarah Ku
- * @version 0.3
+ * @version ?
  */
 
 public class Calculate {
@@ -59,22 +59,24 @@ public class Calculate {
 		if (num1 < num2) {
 			if (num2 < num3) {
 				return num3;
-			} else {
+			} else if (num3 < num2) {
 				return num2;
 			}
 		} else if (num2 < num3) {
 			if (num3 < num1) {
 				return num1;
-			} else {
+			} else if (num1 < num3) {
 				return num3;
 			}
 		} else if (num3 < num1) {
 			if (num1 < num2) {
 				return num2;
-			} else {
+			} else if (num1 < num3) {
 				return num1;
 			}
 		}
+		// the following is to appease the compiler
+		return num1;
 	}
 	public static int min (int num1, int num2) {
 		if (num1 < num2) {
@@ -84,55 +86,71 @@ public class Calculate {
 		}
 	}
 	public static double round2 (double num) {
-		num = num * 10 ^
+		double newNum = num * 100;
+		newNum += 0.5;
+		newNum = (int) newNum;
+		newNum /= 100;
+		return newNum;
 	}
 	
 	// Part 3
-	public static double exponent (double num, int power) {
-		double current = num;
+	public static double exponent (double base, int power) {
+		double current = base;
 		if (power == 0) {
 			current = 1;
 		} else if (power > 1) {
-			for (int i = 2; i <= power; i++) {
-				current *= num;
+			for (int i = 1; i < power; i++) {
+				current *= base;
 			}
 		}
-		num = current;
+		double num = current;
 		return num;
 	}
 	public static int factorial (int num) {
 		int current = num;
 		for (int i = 1; i < num; i++) {
-			current = num * (num - i);
+			current *= (num - i);
 		}
 		num = current;
 		return num;
 	}
-	public static boolean isPrime (int num) {
+	/*public static boolean isPrime (int num) {
+		boolean result = true;
 		if (num <= 0) {
-			return false;
+			result = false;
+			return result;
 		} else {
-			result = num;
-			for (int i = 0; i < 100; i++) {
-				if (Calculate.isDivisibleBy(num1, i)) {
+			int i = 1;
+			while (i < num) {
+				if (Calculate.isDivisibleBy(num, i)) {
 					result = false;
+					return result;
 				}
+				i++;
 			}
 		}
 		return result;
-	}
-	/*public static boolean isDivisibleBy (int num1, int num2) {
-		return num1 % num2 == 0;
 	}*/
 	public static int gcf (int num1, int num2) {
-		
+		int bigNum = (int) Calculate.max(num1, num2);
+		int littleNum = Calculate.min(num1, num2);
+		int gCF = 1;
+		if (Calculate.isDivisibleBy(bigNum, littleNum)) {
+			gCF = littleNum;
+		}
+		for (int i = 2; i <= littleNum; i++) {
+			if (Calculate.isDivisibleBy(bigNum, i) && Calculate.isDivisibleBy(littleNum, i)) {
+				gCF = i;
+			}
+		}
+		return gCF;
 	}
-	public static double sqrt (double num) {
-		
-		return Calculate.round2(num);
-	}
+	/*public static double sqrt (double num) {
+		double result = num;
+		return Calculate.round2(result);
+	}*/
 	
-	// Part 4
+	/* Part 4
 	public static String quadForm (int a, int b, int c) {
 		
 		double root1 = ((-1 * b) + Calculate.sqrt(Calculate.discriminant(a, b, c))) / (4 * a * c);
@@ -148,5 +166,5 @@ public class Calculate {
 		} else if (2 realRoots) {
 			return Calculate.round2(root1) + " and " + Calculate.round2(root2);
 		}
-	}
+	}*/
 }

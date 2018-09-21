@@ -20,17 +20,17 @@ public class DoMath {
 			System.out.println(Calculate.max(1, 923));
 			System.out.println(Calculate.max(1.7, 2.3, 3.8));
 			System.out.println(Calculate.min(2, 32));
-			//System.out.println(Calculate.round2(1.2345));
+			System.out.println(Calculate.round2(1.23556789970987098709));
 			
 		// Part 3
-			System.out.println(Calculate.exponent(2, 3));
-			System.out.println(Calculate.factorial(7));
-			System.out.println(Calculate.isPrime(78));
-			System.out.println(Calculate.gcf(2, 3));
-			System.out.println(Calculate.sqrt(4));
+			System.out.println(Calculate.exponent(1, 0));
+			System.out.println(Calculate.factorial(4));
+			//System.out.println(Calculate.isPrime(11));
+			System.out.println(Calculate.gcf(4, 8));
+			//System.out.println(Calculate.sqrt(4));
 			
 		// Part 4
-			System.out.println(Calculate.quadForm(1, 2, 1));
+			//System.out.println(Calculate.quadForm(1, 2, 1));
 	}
 
 }
