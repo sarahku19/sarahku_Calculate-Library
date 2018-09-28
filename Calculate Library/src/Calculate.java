@@ -165,27 +165,32 @@ public class Calculate {
 		}
 		return gCF;
 	}
-	/*public static double sqrt (double num) {
-		double result = num;
-		// code 
+	public static double sqrt (double num) {
+		if (num < 0)
+			throw new IllegalArgumentException("Square root of " + num + " cannot be found");
+		double guess = 0.001;
+		double result = 0;
+		while (result * result < num) {
+			result = 0.5 * ((result / guess) + guess);
+			guess += 0.001;
+		}
 		return Calculate.round2(result);
-	}*/
+	}
 	
-	/* Part 4
-	public static String quadForm (int a, int b, int c) {
-		
-		double root1 = ((-1 * b) + Calculate.sqrt(Calculate.discriminant(a, b, c))) / (4 * a * c);
-		double root2 = ((-1 * b) - Calculate.sqrt(Calculate.discriminant(a, b, c))) / (4 * a * c);
-		
-		boolean isRealRoot
-		find number of roots
-		
-		if (no realRoots) {
+	// Part 4
+	/*public static String quadForm (int a, int b, int c) {
+		if (Calculate.discriminant(a, b, c) < 0) {
 			return "no real roots";
-		} else if (1 realRoot) {
-			return Calculate.round2(root);
-		} else if (2 realRoots) {
-			return Calculate.round2(root1) + " and " + Calculate.round2(root2);
+		} else {
+			double root1 = ((-1 * b) + Calculate.sqrt(Calculate.discriminant(a, b, c))) / (2 * a);
+			double root2 = ((-1 * b) - Calculate.sqrt(Calculate.discriminant(a, b, c))) / (2 * a);
+			if (root1 == root2) {
+				return "" + Calculate.round2(root1);
+			} else {
+				double littleRoot = Calculate.min(root1, root2);
+				double bigRoot = Calculate.max(root1, root2);
+				return Calculate.round2(littleRoot) + " and " + Calculate.round2(bigRoot);
+			}
 		}
 	}*/
 }
