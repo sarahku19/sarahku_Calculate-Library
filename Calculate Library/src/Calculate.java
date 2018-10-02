@@ -1,6 +1,6 @@
 /* This class contains methods that perform various math operations.
  * @author Sarah Ku
- * @version ?
+ * @version 10/2/2018
  */
 
 public class Calculate {
@@ -42,7 +42,7 @@ public class Calculate {
 	}
 	
 	// Part 2
-	public static boolean isDivisibleBy (int num1, int num2) {
+	public static boolean isDivisibleBy (double num1, double num2) {
 		if (num2 == 0)
 			throw new IllegalArgumentException ("Cannot divide by zero");
 		return num1 % num2 == 0;
@@ -88,7 +88,7 @@ public class Calculate {
 		// the following is to appease the compiler
 		return num1;
 	}
-	public static int min (int num1, int num2) {
+	public static double min (double num1, double num2) {
 		if (num1 == num2)
 			throw new IllegalArgumentException("Both inputs are the same");
 		if (num1 < num2) {
@@ -149,12 +149,12 @@ public class Calculate {
 		// to appease the compiler
 		return result;
 	}
-	public static int gcf (int num1, int num2) {
-		int bigNum = (int) Calculate.max(num1, num2);
-		int littleNum = Calculate.min(num1, num2);
+	public static double gcf (double num1, double  num2) {
+		double bigNum = (int) Calculate.max(num1, num2);
+		double littleNum = Calculate.min(num1, num2);
 		if (bigNum <= 0 || littleNum <= 0)
 			throw new IllegalArgumentException("One or both numbers are zero");
-		int gCF = 1;
+		double gCF = 1;
 		if (Calculate.isDivisibleBy(bigNum, littleNum)) {
 			gCF = littleNum;
 		}
@@ -168,17 +168,16 @@ public class Calculate {
 	public static double sqrt (double num) {
 		if (num < 0)
 			throw new IllegalArgumentException("Square root of " + num + " cannot be found");
-		double guess = 0.001;
-		double result = 0;
-		while (result * result < num) {
-			result = 0.5 * ((result / guess) + guess);
-			guess += 0.001;
+		double result = num / 2;;
+		while(absValue(num - (result * result)) > 0.005) {
+			result = 0.5 * ((num / result) + result);
+			
 		}
 		return Calculate.round2(result);
 	}
 	
 	// Part 4
-	/*public static String quadForm (int a, int b, int c) {
+	public static String quadForm (int a, int b, int c) {
 		if (Calculate.discriminant(a, b, c) < 0) {
 			return "no real roots";
 		} else {
@@ -192,5 +191,6 @@ public class Calculate {
 				return Calculate.round2(littleRoot) + " and " + Calculate.round2(bigRoot);
 			}
 		}
-	}*/
+	}
+	
 }
