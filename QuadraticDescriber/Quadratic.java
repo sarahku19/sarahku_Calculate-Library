@@ -3,6 +3,7 @@ public class Quadratic {
 
 	public static void quadrDescriber (double a, double b, double c) {
 		System.out.println("Opens: " + direction(a));
+		System.out.println("Axis of symmetry: " + axisOfSymmetry(b));
 		System.out.println("Vertex: " + vertex(b, c));
 		System.out.println("x-intercept(s): " + xIntercepts(a, b, c));
 		System.out.println("y-intercept: " + yIntercept(b, c));
@@ -15,6 +16,9 @@ public class Quadratic {
 			return "Up";
 		}
 		return "Not a quadratic equation";
+	}
+	public static double axisOfSymmetry(double b) {
+		return -1 * (b / 2);
 	}
 	public static String vertex (double b, double c) {
 		double x = -1 * (b / 2);
