@@ -26,6 +26,7 @@ public class QuadraticClient {
 			answer = userInput.next();
 			if (answer == "quit")
 				break;
+		userInput.close();
 		}
 	}
 
